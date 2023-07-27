@@ -12,10 +12,15 @@
     let disabled = false;
 
     export const renderBoardHandler = () => renderBoard();
+    export const gridLengthChangedHandler = (data) => gridLengthChanged(data);
 
     function renderBoard() {
         newGrid();
         dispatch('status_changed', { value: 'Game started' })
+    }
+
+    function gridLengthChanged(data) {
+        gridLength = data.value;
     }
 
     function newGrid() {
@@ -42,13 +47,12 @@
         if (checkWin(turn) !== false) {
             disabled = true;
             dispatch('increase_gamer_score', {name: turn, 'score': 1});
-            dispatch('status_changed', { value: turn + ' won' });
+            dispatch('status_changed', {value: turn + ' won'});
 
             return;
         }
 
         turn = turn === 'x' ? '0' : 'x';
-
         allHits++;
         if (allHits === gridLength * gridLength) {
             disabled = true;
@@ -58,7 +62,7 @@
     }
 
     function checkWin() {
-        if (hits.x >= gridLength) {
+        if (hits.x >= gridLength || hits[0] >= gridLength) {
             for (let i1 = 0; i1 < gridLength; i1++) {
                 for (let i2 = 0; i2 < gridLength; i2++) {
                     let check = checkCompleted(grid[i1][i2]);

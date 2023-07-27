@@ -3,11 +3,13 @@
     import Score from '../partials/Score.svelte';
     import Board from '../partials/Board.svelte';
     import StartButton from '../partials/StartButton.svelte';
+    import GridLengthInput from '../partials/GridLengthInput.svelte';
     import Status from '../partials/Status.svelte';
 
     let score;
     let board;
     let status;
+    let gridLengthInput;
 
     onMount(async () => {
         score.setGamersHandler([{name: 'x', score: 0}, {name: '0', score: 0}]);
@@ -15,10 +17,14 @@
 
     function increaseGamerScoreHandler(event) {
         score.increaseGamerScoreHandler(event.detail);
+        gridLengthInput.disableHandler({value: false})
     }
-
+    function gridLengthChangedHandler(event) {
+        board.gridLengthChangedHandler(event.detail)
+    }
     function gameStartedHandler(event) {
         board.renderBoardHandler();
+        gridLengthInput.disableHandler({value: true})
     }
     function statusChangedHandler(event) {
         status.statusChangedHandler(event.detail.value);
@@ -40,6 +46,9 @@
                            on:status_changed={statusChangedHandler}
                            on:increase_gamer_score={increaseGamerScoreHandler}
                     ></Board>
+                    <GridLengthInput bind:this={gridLengthInput}
+                                     on:grid_length_changed={gridLengthChangedHandler}
+                    ></GridLengthInput>
                     <StartButton on:game_started={gameStartedHandler}></StartButton>
                 </div>
             </div>

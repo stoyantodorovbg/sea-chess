@@ -4,4 +4,6 @@
     const dispatch = createEventDispatcher();
 </script>
 
-<button class="btn btn-primary" on:click={() => dispatch('game_started')}>Start New Game</button>
+<button on:click={() => dispatch('game_started')} class="btn btn-primary float-end">
+    Start New Game
+</button>
