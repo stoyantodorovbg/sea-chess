@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
+{% block main_nav %}
+    {% include 'navs/main.html.twig' %}
+{% endblock %}
+
 {% block body %}
     <div {{ svelte_component('Game') }}></div>
 {% endblock %}
