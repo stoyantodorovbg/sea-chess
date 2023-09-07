@@ -1,0 +1,9 @@
+parameters:
+    app.action.score.class: 'App\Action\ScoreAction'
+
+services:
+    app.action.score:
+        class: '%app.action.score.class%'
+        arguments:
+            - '@app.repository.score'
+            - '@app.repository.user'

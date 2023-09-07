@@ -1,6 +1,7 @@
 <script>
     import { onMount } from 'svelte';
     import Score from '../partials/Score.svelte';
+    import User from '../partials/User.svelte';
     import Board from '../partials/Board.svelte';
     import StartButton from '../partials/StartButton.svelte';
     import GridLengthInput from '../partials/GridLengthInput.svelte';
@@ -10,6 +11,7 @@
     let board;
     let status;
     let gridLengthInput;
+    export let userName = false;
 
     onMount(async () => {
         score.setGamersHandler([{name: 'x', score: 0}, {name: '0', score: 0}]);
@@ -35,6 +37,9 @@
     <div class="row text-center">
         <div class="col">
             <Score bind:this={score}></Score>
+        </div>
+        <div class="col">
+            <User userName={userName}></User>
         </div>
     </div>
     <div class="row align-items-center h-100">

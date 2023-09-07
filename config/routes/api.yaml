@@ -1,0 +1,3 @@
+score_show:
+  path:       /score/{id}
+  controller: App\Controller\Api\ScoreController::show

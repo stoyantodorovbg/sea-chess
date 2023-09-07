@@ -1,0 +1,9 @@
+parameters:
+    app.repository.score.class: 'App\Repository\ScoreRepository'
+    app.repository.user.class: 'App\Repository\UserRepository'
+
+services:
+    app.repository.score:
+        class: '%app.repository.score.class%'
+    app.repository.user:
+        class: '%app.repository.user.class%'
