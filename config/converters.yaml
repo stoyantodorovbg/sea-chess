@@ -1,0 +1,11 @@
+parameters:
+    app.converter.type.class: 'App\Converter\TypeConverter'
+    app.converter.score.class: 'App\Converter\ScoreConverter'
+
+services:
+    app.converter.type:
+        class: '%app.converter.type.class%'
+    app.converter.score:
+        class: '%app.converter.score.class%'
+        arguments:
+            - '@app.converter.type'

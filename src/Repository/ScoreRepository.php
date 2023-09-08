@@ -8,6 +8,7 @@ use App\Enum\ScoreType;
 use App\Repository\Interfaces\ScoreRepositoryInterface;
 use DateTimeImmutable;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @extends ServiceEntityRepository<Score>
@@ -24,13 +25,13 @@ class ScoreRepository extends BaseRepository implements ScoreRepositoryInterface
         parent::__construct($registry, Score::class);
     }
 
-    public function store(User $user, ScoreType $type, int $value = 0): Score
+    public function store(UserInterface $user, ScoreType $type, int $value = 0): Score
     {
         return $this->createEntity([
             'user'       => $user,
             'type'       => $type->value,
             'value'      => $value,
-            'created_at' => new DateTimeImmutable,
+            'createdAt' => new DateTimeImmutable,
         ]);
     }
 
@@ -43,18 +44,14 @@ class ScoreRepository extends BaseRepository implements ScoreRepositoryInterface
 
 
 
-    public function getScore(User $user, string $type, string $createdAt): Score|null
+    public function getScore(UserInterface $user, string $type, string|null $createdAt): Score|null
     {
-        return $this->findOneBy([
-            'user_id'    => $user->getId(),
-            'type'       => $type,
-            'created_at' => $createdAt,
-        ]);
+        return $this->findOneBy(compact('user', 'type', 'createdAt'));
     }
 
-    public function getScores(User $user, string $type = null): array
+    public function getScores(UserInterface $user, string $type = null): array
     {
-        $criteria = ['user_id' => $user->getId()];
+        $criteria = compact('user');
         if ($type) {
             $criteria['type'] = $type;
         }
@@ -62,7 +59,7 @@ class ScoreRepository extends BaseRepository implements ScoreRepositoryInterface
         return $this->findBy($criteria);
     }
 
-    public function createScore(User $user, string $type, int $value): Score
+    public function createScore(UserInterface $user, string $type, int $value): Score
     {
         return $this->store(
             user: $user,

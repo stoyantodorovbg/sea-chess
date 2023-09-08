@@ -30,4 +30,12 @@ abstract class BaseRepository extends ServiceEntityRepository
 
         return $entity;
     }
+
+    protected function query(string $query): mixed
+    {
+        $em = $this->getEntityManager();
+        $query = $em->createQuery($query);
+
+        return $query->getResult();
+    }
 }

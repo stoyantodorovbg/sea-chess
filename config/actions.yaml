@@ -6,4 +6,3 @@ services:
         class: '%app.action.score.class%'
         arguments:
             - '@app.repository.score'
-            - '@app.repository.user'

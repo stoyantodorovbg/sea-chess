@@ -5,5 +5,8 @@
 {% endblock %}
 
 {% block body %}
-    <div {{ svelte_component('Game', { 'userName': app.user ? app.user.name : false }) }}></div>
+    <div {{ svelte_component('Game', {
+        'userName': app.user ? app.user.name : false,
+        'userScoresData': userScores
+    }) }}></div>
 {% endblock %}

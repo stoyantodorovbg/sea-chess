@@ -3,20 +3,28 @@
 namespace App\Controller\Api;
 
 use App\Action\ScoreAction;
+use Psr\Log\LoggerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ScoreController
+class ScoreController extends AbstractController
 {
+    public function __construct(private Security $security)
+    {
+    }
+
+
     #[Route('/api/get-score', methods: ['GET'])]
     public function getUserScore(Request $request, ScoreAction $action): JsonResponse
     {
         return new JsonResponse([
             'score' => $action->getValue(
-                userId: $request->get('user_id'),
-                type: $request->get('type'),
-                createdAt: $request->get('created_at'),
+                user: $this->security->getUser(),
+                type: $request->getPayload()->get('type'),
+                createdAt: $request->getPayload()->get('created_at'),
             ),
         ]);
     }
@@ -26,20 +34,20 @@ class ScoreController
     {
         return new JsonResponse([
             'scores' => $action->getUserScores(
-                userId: $request->get('user_id'),
+                user: $this->security->getUser(),
                 type: $request->get('type'),
             ),
         ]);
     }
 
     #[Route('/api/set-score', methods: ['POST'])]
-    public function setScore(Request $request, ScoreAction $action): JsonResponse
+    public function setScore(Request $request, ScoreAction $action, LoggerInterface $logger): JsonResponse
     {
         $action->updateOrCreate(
-            userId: $request->get('user_id'),
-            type: $request->get('type'),
-            createdAt: $request->get('created_at'),
-            value: $request->get('value'),
+            user: $this->security->getUser(),
+            type: $request->getPayload()->get('type'),
+            createdAt: $request->getPayload()->get('created_at'),
+            value: $request->getPayload()->get('value'),
         );
 
         return new JsonResponse(['message' => 'Success']);

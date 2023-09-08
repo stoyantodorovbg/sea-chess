@@ -5,18 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a2bef9f-2198-40c7-a8b9-628b45f75a3e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/svelte/controllers/Game.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/assets/svelte/controllers/Game.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/svelte/partials/User.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/assets/svelte/partials/User.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/actions.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/actions.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20230811095754.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20230811095754.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Action/ScoreAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Action/ScoreAction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Api/ScoreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Api/ScoreController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Score.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Score.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/BaseRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/BaseRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/Interfaces/ScoreRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/Interfaces/ScoreRepositoryInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ScoreRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ScoreRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/game.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/game.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,11 +234,25 @@
       <workItem from="1692086880088" duration="11139000" />
       <workItem from="1692169910177" duration="7450000" />
       <workItem from="1694003441503" duration="5086000" />
-      <workItem from="1694068868120" duration="5039000" />
+      <workItem from="1694068868120" duration="15643000" />
+      <workItem from="1694156704273" duration="3616000" />
+      <workItem from="1694180451090" duration="5024000" />
+      <workItem from="1694195793868" duration="3334000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/assets/svelte/services/ApiClient.js</url>
+          <line>43</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -26,10 +26,10 @@ interface ScoreRepositoryInterface
     /**
      * @param User   $user
      * @param string $type
-     * @param string $createdAt
+     * @param string|null $createdAt
      * @return Score|null
      */
-    public function getScore(User $user, string $type, string $createdAt): Score|null;
+    public function getScore(User $user, string $type, string|null $createdAt): Score|null;
 
     /**
      * @param User   $user

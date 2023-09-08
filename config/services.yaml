@@ -17,7 +17,6 @@ services:
         resource: '../src/'
         exclude:
             - '../src/DependencyInjection/'
-            - '../src/Action/'
             - '../src/Entity/'
             - '../src/Kernel.php'
 
@@ -27,3 +26,4 @@ services:
 imports:
     - { resource: 'actions.yaml' }
     - { resource: 'repositories.yaml' }
+    - { resource: 'converters.yaml' }
